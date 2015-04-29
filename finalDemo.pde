@@ -99,8 +99,11 @@ void reset(){
 }
 
 void draw(){   
+  println("1");
   gameState(); 
+  println("2");
   checkSound();
+  println("3");
 }
 //------Sound------//
 void checkSound(){//BUG !!!!why Q^Q BUG NullPointerException Q^Q
