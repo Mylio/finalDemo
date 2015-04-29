@@ -18,6 +18,6 @@
                   data/shiro.png,
                   data/shiro2.png,
                   data/start.png,
-                  data/attack01.wav,
+                  data/attack02.wav,
                   data/jump01.wav,
                   data/Good_Starts.wav"; */
