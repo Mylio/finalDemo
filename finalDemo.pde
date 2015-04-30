@@ -1,14 +1,14 @@
 PImage playbk,pause,start,win,lose;
-/*
+
 //MinimInput
- //import ddf.minim.*;
+ import ddf.minim.*;
  Minim minim;
  AudioInput in;
 AudioInput accessMic;
 AudioPlayer bgMusic;
 AudioPlayer jupShiro;
 AudioPlayer fishAtk;
-AudioPlayer jupSound;*/
+AudioPlayer jupSound;
 
 //State
 final int GAME_START   = 0;
@@ -44,14 +44,14 @@ void setup(){
   win = loadImage("gamewin.png");
   lose = loadImage("gameover.png");
  //-------music------// 
- // minim = new Minim(this);
- // in = minim.getLineIn();
- // bgMusic = minim.loadFile("Good Starts.mp3");
- // fishAtk = minim.loadFile("attack02.wav");
- // jupSound = minim.loadFile("jump01.wav");
- // jupShiro = minim.loadFile("attack02.wav");
-//  bgMusic.play();
-//  bgMusic.loop();//replay bg music ;
+  minim = new Minim(this);
+  in = minim.getLineIn();
+  bgMusic = minim.loadFile("Good Starts.mp3");
+  fishAtk = minim.loadFile("attack02.wav");
+  jupSound = minim.loadFile("jump01.wav");
+  jupShiro = minim.loadFile("attack02.wav");
+  bgMusic.play();
+  bgMusic.loop();//replay bg music ;
   //
   player = new Mau();  
   mon = new Monster[30];
@@ -113,12 +113,12 @@ void checkSound(){//BUG !!!!why Q^Q BUG NullPointerException Q^Q
     println("kill!");
     kill =false ;
   }*/
-  //if(fish[fno[1]].atk){
-   // fishAtk.rewind();
-   // fishAtk.setVolume(0.5);//**noisy XD//
-  //  fishAtk.play();
+  if(fish[fno[1]].atk){
+    fishAtk.rewind();
+    fishAtk.setVolume(0.5);//**noisy XD//
+    fishAtk.play();
    // println("atk");
- // }
+  }
  
 
 }
@@ -317,11 +317,8 @@ void gameState(){
      textAlign(CENTER);
      fill(0,144,180);
      text("Are You READY?",width/2,height/2);
-     //getVol();
-    // makeRope();
      break;
      case GAME_PLAY:
-    // image(playbk,0,0);
      player.goRight =true;
      player.move();
      player.x-=2 ;//this one
@@ -332,7 +329,7 @@ void gameState(){
      drawFish();
      fishAtk();
      bubMove();
-   //  checkJump();
+     checkJump();
      checkDie();
      jumpShiro();
      drawDis();
@@ -362,21 +359,8 @@ void gameState(){
      break;
   }
 }
-/*
-void getVol(){
-   float max =0 ;
-   accessMic = minim.getLineIn();
-   vol = accessMic.getGain();
-   for(int i = 0; i < in.bufferSize() - 1; i++){
-  // vol = in.mix.get(i)*50 ;  
-   if(vol > max){
-     max = vol ;
-    } 
-   println(max,vol);   
-   }
-}*/
 
-/*void checkJump(){
+void checkJump(){
   for(int i = 0; i < in.bufferSize() - 1; i++){
     line( i, 50 + in.left.get(i)*50, i+1, 50 + in.left.get(i+1)*50 );
     line( i, 150 + in.right.get(i)*50, i+1, 150 + in.right.get(i+1)*50);
@@ -389,20 +373,14 @@ void getVol(){
        }
      }
   }
-}*/
+}
 void checkWin(){ 
-  //strokeWeight(10);
-  //line(wX,0,wX,height);
   wX-=2 ;
   if(player.x > wX){
     status = GAME_WIN ;
   }
 }
-/*
-void keyPressed(){
-  statusCtrl();
-}*/
-////
+
 void statusCtrl(){
   if (key == ENTER){
     switch(status){
@@ -434,7 +412,7 @@ void keyPressed(){
   statusCtrl();
   if (keyCode==UP && player.ySpeed == 0) {
         player.jump = true;
-      //  jupSound.rewind();
-      //  jupSound.play();
+        jupSound.rewind();
+        jupSound.play();
       }
 }
