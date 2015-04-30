@@ -100,9 +100,9 @@ void reset(){
 
 void draw(){   
   println("1");
-//  gameState(); 
+  gameState(); 
   println("2");
-  checkSound();
+//  checkSound();
   println("3");
 }
 //------Sound------//
