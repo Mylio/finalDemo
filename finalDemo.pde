@@ -100,7 +100,7 @@ void reset(){
 
 void draw(){   
   println("1");
-  gameState(); 
+//  gameState(); 
   println("2");
   checkSound();
   println("3");
