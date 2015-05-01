@@ -24,8 +24,8 @@ float rPosiX;
 float rPosiY;
 float rLength;
 float nowR=0;
-int [] rno;
-int [] fno;
+int [] rno; //has checked
+int [] fno; //has checked
 int score =0;
 boolean kill=false ;//if jump on shiro = true ;
 float wX = 5050 ;
@@ -100,9 +100,9 @@ void reset(){
 
 void draw(){   
   println("1");
-  gameState(); 
+ // gameState(); 
   println("2");
-//  checkSound();
+  checkSound(); //has checked
   println("3");
 }
 //------Sound------//
