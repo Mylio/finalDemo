@@ -46,7 +46,7 @@ void setup(){
  //-------music------// 
   minim = new Minim(this);
   in = minim.getLineIn();
-  bgMusic = minim.loadFile("Good Starts.mp3");
+  bgMusic = minim.loadFile("Good_Starts.wav");
   fishAtk = minim.loadFile("attack02.wav");
   jupSound = minim.loadFile("jump01.wav");
   jupShiro = minim.loadFile("attack02.wav");
@@ -100,7 +100,7 @@ void reset(){
 
 void draw(){   
   println("1");
- // gameState(); 
+  gameState(); //checked
   println("2");
   checkSound(); //has checked
   println("3");
